@@ -94,35 +94,11 @@ class TestTweetDfExtractor(unittest.TestCase):
 
 
     def test_find_hashtags(self):
-        self.assertEqual(self.df.find_hashtags()[1],[
-            {
-                "text": "China",
-                "indices": [
-                    18,
-                    24
-                ]
-            },
-            {
-                "text": "Taiwan",
-                "indices": [
-                    98,
-                    105
-                ]
-            }
-        ] )
+        self.assertEqual(self.df.find_hashtags()[1],["China", "Taiwan"] )
 
     def test_find_mentions(self):
         self.assertEqual(self.df.find_mentions()[1], [
-            {
-                "screen_name": "IndoPac_Info",
-                "name": "Indo-Pacific News - Watching the CCP-China Threat",
-                "id": 844136511079559168,
-                "id_str": "844136511079559168",
-                "indices": [
-                    3,
-                    16
-                ]
-            }
+            "IndoPac_Info"
         ])
 
 

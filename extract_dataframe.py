@@ -115,11 +115,14 @@ class TweetDfExtractor:
     def find_hashtags(self)->list:
         """Make and return a hashtags list"""
         hashtags = [tweet['entities']['hashtags'] for tweet in self.tweets_list]
+        hashtags = [[ht.get('text') for ht in x] if len(x) else [] for x in hashtags]
         return hashtags
 
     def find_mentions(self)->list:
         """Make and return a mentions list"""
         mentions = [tweet['entities']['user_mentions'] for tweet in self.tweets_list]
+        
+        mentions = [[mention.get('screen_name') for mention in x] if len(x) else [] for x in mentions]
         return mentions
 
     def find_location(self)->list:
@@ -160,7 +163,7 @@ class TweetDfExtractor:
         location = self.find_location()
         data = zip(created_at, source, text, polarity, subjectivity, lang, fav_count, retweet_count, screen_name, follower_count, friends_count, sensitivity, hashtags, mentions, location)
         df = pd.DataFrame(list(data), columns=columns)
-
+        
         if save:
             df.to_csv('processed_tweet_data.csv', index=False)
             print('File Successfully Saved.!!!')
@@ -175,5 +178,6 @@ if __name__ == "__main__":
     _, tweet_list = read_json("./data/global_twitter_data.json")
     tweet = TweetDfExtractor(tweet_list)
     tweet_df = tweet.get_tweet_df(save=True) 
+    
 
     # use all defined functions to generate a dataframe with the specified columns above
