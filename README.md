@@ -1,29 +1,54 @@
+
 # Twitter-Data-Analysis
 
-### So here are the bare minimum requirement for completing this task
-
-1. Use this template to create a repository called Twitter-Data-Analysis in your github account. See ["Creating a repository from a template."](https://docs.github.com/en/articles/creating-a-repository-from-a-template) for more information.
-2. [Download](https://drive.google.com/drive/folders/19G8dmehf9vU0u6VTKGV-yWsQOn3IvPsd) and extract the necessary data and put it in the data directory. The data should not not be added to git tracking.
-3. Create a branch called “bugfix” to fix the bugs in the fix_clean_tweets_dataframe.py and fix_extract_dataframe.py 
-4. In branch “bugfix” use the git mv command to rename fix_clean_tweets_dataframe.py to clean_tweets_dataframe.py and fix_extract_dataframe.py  to extract_dataframe.py 
-5. Fix the bugs on clean_tweets_dataframe.py and extract_dataframe.py 
-6. Multiple times, push the code you are working on to git, and once the fix is complete, merge the fix_bug branch to main branch
-7. Create a new branch called “testing” for updating the unit tests in the test/ folder to be applicable to the code you fixed. 
-    a. Build your unit and integration tests to run on small data (< 1 MB) that you copied from what is provided - avoid pushing large data to github
-    b. Think about the key elements (units can be functions, classes, or modules; multiple of them working together to accomplish a task requires integration testing) of the code base you are working on. Write the following
-      - Unit tests: for individual key functions and classes
-      - Integration tests: for the integration of multiple units working together
-8. After completing the unit and integration tests, merge  the “testing” branch with the main branch
-9. In all cases when you merge, make sure you first do Pull Request, review, then accept the merge.
-10. Use github actions in your repository such that when you git push new code (or merge a branch) to the main branch, the unit test in tests/*.py runs automatically. All tests should pass.
+This project is about understanding the topics in the input data of the current political situations of the US, China, and Taiwan. These topics will help us to analyze the context of the data. In order to complete this task we will use Topic modeling and Sentiment analysis. We will follow the data science workflow to complete this task. 
 
 
-After Completing this Challenge, you would have explore  
 
-- Unittesting
-- Modular Coding
-- Software Engineering Best Practices
-- Python Package Structure
-- Bug Fix (Debugging)
+    
 
-Have Fun and Cheers
+
+
+
+
+## Workflow
+
+- ### Data Understanding
+ 
+	In this project two JSON datasets are given. The dataset is collected from Twitter tweets. The datasets are global_twitter_data.json, and african_twitter_data.json. It has so many columns, and some of them are 'created_at', 'source', 'original_text', 'polarity', 'subjectivity', 'lang', 'favorite_count', 'retweet_count', 'original_author', 'followers_count' ,'friends_count','possibly_sensitive', 'hashtags', 'user_mentions' and 'place'. 
+
+- ### Data Preparation
+
+	We have to clean and preprocess the raw data in order to make it ready for our model. We will manage missing data, duplicate data, different language data, and implement other preprocessing techniques. We will split our data into training, validation, and tests.
+
+- ### Modeling
+
+	We will train our model based on the processed data. In this step we will try various types of models to get a good accuracy in the prediction. We will use train and validation data.
+
+- ### Evaluation
+
+	We will measure the accuracy of our model using our test data.
+
+- ### Deployment
+
+	When we are sure about the accuracy of our model we will deploy it, and we can make predictions using that.
+
+
+
+
+
+
+
+## Folder Structure
+
+- data: Contains the dataset
+- notebooks: Contains our jupyter notebooks
+- tests: Contains our test file
+
+
+
+
+## Author
+
+- [Haylemicheal Berihun](https://www.linkedin.com/in/haylemicheal-berihun-a20320aa)
+
