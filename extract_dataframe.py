@@ -128,11 +128,12 @@ class TweetDfExtractor:
     def find_location(self)->list:
         """Make and return a location list"""
         locations = []
-        try:
-            location = self.tweets_list['user']['location']
-            locations.append(location)
-        except TypeError:
-            locations.append('')
+        for tweet in self.tweets_list:
+        	try:
+            		location = tweet['user']['location']
+            		locations.append(location)
+        	except TypeError:
+            		locations.append('')
         
         return locations
 
